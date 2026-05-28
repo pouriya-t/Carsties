@@ -8,18 +8,6 @@ services:
     volumes:
       - /var/lib/postresql/data
 
-  adminer:
-    image: adminer
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-# System: PostgreSQL
-# Server: postgres
-# Username: postgres
-# Password: postgrespw
-# Database:     
-
   mongodb:
     image: mongo
     environment:
@@ -29,4 +17,24 @@ services:
       - 27017:27017
     volumes:
       - /var/lib/mongodata/data
-        
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+
+
+      
+  # adminer:
+  #   image: adminer
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - postgres
+  # System: PostgreSQL
+  # Server: postgres
+  # Username: postgres
+  # Password: postgrespw
+  # Database:         
