@@ -38,6 +38,7 @@ public class BidsController : ControllerBase
             if (auction == null) return BadRequest("Cannot accept bids on this auction at this time");
         }
 
+
         if (auction.Seller == User.Identity.Name)
         {
             BadRequest("You cannot bid on your own auction");
