@@ -41,7 +41,7 @@ public class BidsController : ControllerBase
 
         if (auction.Seller == User.Identity.Name)
         {
-            BadRequest("You cannot bid on your own auction");
+            return BadRequest("You cannot bid on your own auction");
         }
 
         var bid = new Bid
